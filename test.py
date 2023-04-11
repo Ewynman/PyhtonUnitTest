@@ -29,6 +29,14 @@ class TestPayBill(unittest.TestCase):
         self.assertAlmostEqual(bill_dict['guest5'], 0.0)
         self.assertIsNone(extra_guest)
 
+    def test_invalid_input(self):
+        with self.assertRaises(Exception):
+            payBill(100.0, 0)
+        with self.assertRaises(Exception):
+            payBill('', 4)
+        with self.assertRaises(Exception):
+            payBill(100.0, 'four')
+
 
 if __name__ == '__main__':
     unittest.main()

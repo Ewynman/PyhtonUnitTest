@@ -2,17 +2,6 @@ import random
 
 # Define a function named "payBill" that takes in two parameters: "total_bill" and "num_guests"
 def payBill(total_bill, num_guests):
-    # Add error checking to ensure the number of guests is not 0
-    if num_guests == 0:
-        print("cannot divide by zero!!")
-        return None, None
-    # Add error checking to ensure that all entries are numbers or floats
-    try:
-        total_bill = float(total_bill)
-        num_guests = int(num_guests)
-    except ValueError:
-        return None, None
-
     # Calculate the cost per guest, rounding to two decimal places
     cost_per_guest = round(total_bill / num_guests, 2)
 
@@ -53,8 +42,8 @@ def payBill(total_bill, num_guests):
 
 
 # Ask the user for the total bill amount and number of guests
-total_bill = input("Enter the total bill amount including tip: ")
-num_guests = input("Enter the number of guests: ")
+total_bill = float(input("Enter the total bill amount including tip: "))
+num_guests = int(input("Enter the number of guests: "))
 
 # Call the "payBill" function with the user's input and store the result in "extra_guest" (which may be None)
 bill_dict, extra_guest = payBill(total_bill, num_guests)
